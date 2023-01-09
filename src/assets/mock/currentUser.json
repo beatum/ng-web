@@ -1,0 +1,13 @@
+{
+    "status": true,
+    "message": "ok",
+    "code":1,
+    "user": {
+        "email": "123@test.org",
+        "firstName": "test",
+        "status": "Normal",
+        "statusChanged": false,
+        "key": 123456,
+        "name": "Happy"
+    }
+}

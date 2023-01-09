@@ -1,0 +1,43 @@
+<ng-container *ngTemplateOutlet="recursiveListTmpl; context:{ list: menuItems }"></ng-container>
+
+<ng-template #recursiveListTmpl let-list="list">
+    <ng-template ngFor let-menuItem [ngForOf]="list">
+        <!--is root-->
+        <ng-template [ngIf]="menuItem.isRoot == '1'" [ngIfElse]="notrootone">
+            <clr-vertical-nav-group routerLinkActive="active">
+                <span nz-icon [nzType]="menuItem.icon" nzTheme="outline"></span>
+                {{menuItem.label}}
+                <!--child-->
+                <clr-vertical-nav-group-children>
+                    <ng-template ngFor let-children [ngForOf]="menuItem.children">
+                        <!--is root-->
+                        <ng-template [ngIf]="children.isRoot == '1'" [ngIfElse]="notroot">
+                            <clr-vertical-nav-group> {{children.label}}
+                                <span nz-icon [nzType]="children.icon" nzTheme="outline"></span>
+                                <clr-vertical-nav-group-children>
+                                    <ng-container
+                                        *ngTemplateOutlet="recursiveListTmpl; context:{ list: children.children }"></ng-container>
+                                </clr-vertical-nav-group-children>
+                            </clr-vertical-nav-group>
+                        </ng-template>
+                        <!--not root-->
+                        <ng-template #notroot>
+                            <a clrVerticalNavLink [routerLink]="children.routerLink" routerLinkActive="active">
+                                <span nz-icon [nzType]="children.icon" nzTheme="outline"></span>
+                                {{ children.label }}
+                            </a>
+                        </ng-template>
+                    </ng-template>
+                </clr-vertical-nav-group-children>
+            </clr-vertical-nav-group>
+        </ng-template>
+
+        <ng-template #notrootone>
+            <a clrVerticalNavLink [routerLink]="menuItem.routerLink" routerLinkActive="active">
+                <span nz-icon [nzType]="menuItem.icon" nzTheme="outline"></span>
+                {{ menuItem.label }}
+            </a>
+        </ng-template>
+
+    </ng-template>
+</ng-template>

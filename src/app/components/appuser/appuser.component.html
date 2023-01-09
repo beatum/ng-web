@@ -1,0 +1,192 @@
+<!--Header-->
+<h4 class="card-header padding-lt0">
+    <span nz-icon nzType="user" nzTheme="outline" style="font-size:25px"></span>
+    User
+</h4>
+<!--content-->
+<div class="card-block padding-lt0 my-card-content">
+    <div class="clr-row clr-align-items-start">
+        <!--user name-->
+        <div class="userControl">
+            <clr-input-container>
+                <label>User Name:</label>
+                <input clrInput placeholder="User name" name="userName" [(ngModel)]="userForQuery.name">
+            </clr-input-container>
+        </div>
+
+        <!--category-->
+        <div class="userControl">
+            <clr-combobox-container>
+                <label>Category</label>
+                <clr-combobox [(ngModel)]="userForQuery.category" placeholder="Choose a category">
+                    <clr-options>
+                        <clr-option clrValue="IT">IT</clr-option>
+                        <clr-option clrValue="ENG">Engineering</clr-option>
+                        <clr-option clrValue="PD">Production</clr-option>
+                    </clr-options>
+                </clr-combobox>
+            </clr-combobox-container>
+        </div>
+    </div>
+
+    <div class="clr-row clr-align-items-start rowOfControlGrid">
+        <div class="userControl">
+            <button class="btn btn-primary btn-sm" (click)="query()">Query</button>
+        </div>
+
+        <div class="userControl">
+            <button class="btn btn-success btn-sm">New</button>
+        </div>
+
+        <div class="userControl">
+            <button class="btn btn-sm">Export</button>
+        </div>
+    </div>
+
+    <clr-datagrid>
+        <clr-dg-column>User ID</clr-dg-column>
+        <clr-dg-column [clrDgField]="'name'">Name</clr-dg-column>
+        <clr-dg-column>FirstName</clr-dg-column>
+        <clr-dg-column>LastName</clr-dg-column>
+        <clr-dg-column>Category</clr-dg-column>
+        <clr-dg-column>Mail</clr-dg-column>
+        <clr-dg-column>Creation Time</clr-dg-column>
+        <clr-dg-column>Status</clr-dg-column>
+
+        <clr-dg-row *ngFor="let user of users">
+            <clr-dg-cell>{{user.id}}</clr-dg-cell>
+            <clr-dg-cell>{{user.name}}</clr-dg-cell>
+            <clr-dg-cell>{{user.firstName}}</clr-dg-cell>
+            <clr-dg-cell>{{user.lastName}}</clr-dg-cell>
+            <clr-dg-cell>{{user.category}}</clr-dg-cell>
+            <clr-dg-cell>{{user.mail}}</clr-dg-cell>
+            <clr-dg-cell>{{user.creationTime}}</clr-dg-cell>
+            <clr-dg-cell>{{user.status}}</clr-dg-cell>
+            <clr-dg-action-overflow>
+                <button class="action-item" (click)="onEdit(user)">
+                    <span nz-icon nzType="edit" nzTheme="outline"></span>
+                    edit
+                </button>
+                <button class="action-item">
+                    <span nz-icon nzType="reload" nzTheme="outline"></span>
+                    reset password
+                </button>
+            </clr-dg-action-overflow>
+        </clr-dg-row>
+
+        <clr-dg-footer>
+            <clr-dg-pagination (clrDgPageChange)="pageChange($event)" #pagination [clrDgPageSize]="pageSize"
+                [clrDgTotalItems]="pageSize" [(clrDgPage)]="currentPage" [clrDgLastPage]="pageCount">
+                <clr-dg-page-size #clrDgPageSize [clrPageSizeOptions]="[10,20,50,100]">
+                    <label [for]="clrDgPageSize.pageSizeOptionsId">Users per page</label>
+                </clr-dg-page-size>
+                <!--
+                or you can use the clrPageSizeOptionsId input to explicitly set the id:
+                <clr-dg-page-size [clrPageSizeOptions]="[10,20,50,100]" clrPageSizeOptionsId="page-size-select-id">
+                    <label for="page-size-select-id">Users per page</label>
+                </clr-dg-page-size>
+                -->
+                {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                of {{pagination.totalItems}} users
+            </clr-dg-pagination>
+        </clr-dg-footer>
+    </clr-datagrid>
+</div>
+
+
+<app-footer></app-footer>
+
+<!--dialog of edit user-->
+<clr-modal class="modal-lg" [(clrModalOpen)]="showEditUser" [clrModalStaticBackdrop]="true">
+    <h3 class="modal-title">Edit User</h3>
+    <div class="modal-body">
+        <div class="clr-row clr-align-items-start">
+            <!--user name-->
+            <div class="userControl clr-col-5 clr-col-md-5 clr-col-sm-2 ">
+                <clr-input-container>
+                    <label>User Name:</label>
+                    <input clrInput placeholder="User name" [(ngModel)]="userForEdit.name" />
+                </clr-input-container>
+            </div>
+
+            <!--category-->
+            <div class="userControl  clr-col-5 clr-col-md-5 clr-col-sm-2">
+                <clr-combobox-container>
+                    <label>Category</label>
+                    <clr-combobox [(ngModel)]="userForEdit.category" laceholder="Choose a category">
+                        <clr-options>
+                            <clr-option clrValue="IT">IT</clr-option>
+                            <clr-option clrValue="ENG">Engineering</clr-option>
+                            <clr-option clrValue="PD">Production</clr-option>
+                        </clr-options>
+                    </clr-combobox>
+                </clr-combobox-container>
+            </div>
+
+            <!--first name-->
+            <div class="userControl clr-col-5 clr-col-md-5 clr-col-sm-2 ">
+                <clr-input-container>
+                    <label>First Name:</label>
+                    <input clrInput placeholder="First Name" [(ngModel)]="userForEdit.firstName" />
+                </clr-input-container>
+            </div>
+
+            <!--last name-->
+            <div class="userControl clr-col-5 clr-col-md-5 clr-col-sm-2 ">
+                <clr-input-container>
+                    <label>Last Name:</label>
+                    <input clrInput placeholder="Last Name" [(ngModel)]="userForEdit.lastName" />
+                </clr-input-container>
+            </div>
+
+            <!--email-->
+            <div class="userControl clr-col-5 clr-col-md-5 clr-col-sm-2 ">
+                <clr-input-container>
+                    <label>Mail:</label>
+                    <input clrInput placeholder="Mail" [(ngModel)]="userForEdit.mail" />
+                </clr-input-container>
+            </div>
+
+            <!--status-->
+            <div class="userControl  clr-col-5 clr-col-md-5 clr-col-sm-2">
+                <clr-combobox-container>
+                    <label>Status</label>
+                    <clr-combobox [(ngModel)]="userForEdit.status" laceholder="Choose a status">
+                        <clr-options>
+                            <clr-option clrValue="Normal">Normal</clr-option>
+                            <clr-option clrValue="Disabled">Disabled</clr-option>
+                        </clr-options>
+                    </clr-combobox>
+                </clr-combobox-container>
+            </div>
+
+            <!--user group-->
+            <div class="clr-col-12 clr-col-md-12 clr-col-sm-12">
+                <clr-datagrid>
+                    <clr-dg-column>No</clr-dg-column>
+                    <clr-dg-column [clrDgField]="'name'">Name</clr-dg-column>
+                    <clr-dg-column>Description</clr-dg-column>
+
+                    <clr-dg-row *ngFor="let group of userGroup4Edit ; index as i">
+                        <clr-dg-cell>{{ i + 1 }}</clr-dg-cell>
+                        <clr-dg-cell>{{group.name}}</clr-dg-cell>
+                        <clr-dg-cell>{{group.description}}</clr-dg-cell>
+                        <clr-dg-action-overflow>
+                            <button class="action-item" (click)="onEditGroup(group)">
+                                <span nz-icon nzType="delete" nzTheme="outline"></span>
+                                Remove
+                            </button>
+                        </clr-dg-action-overflow>
+                    </clr-dg-row>
+                </clr-datagrid>
+            </div>
+            <div class="clr-col-12 clr-col-md-12 clr-col-sm-12">
+                <button class="btn btn-primary btn-sm">add new</button>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline">Cancel</button>
+        <button type="button" class="btn btn-primary">Ok</button>
+    </div>
+</clr-modal>

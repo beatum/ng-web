@@ -1,0 +1,6 @@
+<nz-tabset [(nzSelectedIndex)]="selectedIndex" nzType="editable-card" (nzAdd)="newTab()" (nzClose)="closeTab($event)"
+    [nzHideAdd]="true">
+    <nz-tab *ngFor="let tab of tabs; let i = index" nzClosable [nzTitle]="tab.name" (nzSelect)="tabSelected(tab,i)">
+    </nz-tab>
+</nz-tabset>
+<router-outlet></router-outlet>

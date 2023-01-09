@@ -1,0 +1,27 @@
+<div class="login-wrapper">
+    <form class="login">
+        <section class="title">
+            <h3 class="welcome">Welcome to</h3>
+            My Angular web
+            <h5 class="hint">Use your Company ID to sign in or create one now</h5>
+        </section>
+        <div class="login-group">
+            <clr-input-container>
+                <label class="clr-sr-only">Username</label>
+                <input type="text" name="username" clrInput placeholder="Username" [(ngModel)]="userName" />
+            </clr-input-container>
+            <clr-password-container>
+                <label class="clr-sr-only">Password</label>
+                <input type="password" name="password" clrPassword placeholder="Password" [(ngModel)]="password" />
+            </clr-password-container>
+            <app-alert [message]="alertMessage" [alertClosed]="alertClosed"></app-alert>
+            <clr-checkbox-wrapper>
+                <label>Remember me</label>
+                <input type="checkbox" name="rememberMe" clrCheckbox [(ngModel)]="rememberMe" />
+            </clr-checkbox-wrapper>
+            <button class="btn btn-primary" (click)="login()">Login</button>
+
+            <a href="javascript://" class="signup">Sign up for a Company ID</a>
+        </div>
+    </form>
+</div>

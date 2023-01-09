@@ -1,0 +1,24 @@
+<header class="header-6">
+    <button type="button" class="header-hamburger-trigger" aria-label="Navigation menu" aria-expanded="false"><span></span></button>
+    <div class="branding">
+        <a href="javascript://" class="nav-link">
+            <img [src]="logo" style="width: 55px;" />
+            <span class="title">Angular Web</span>
+        </a>
+    </div>
+    <div class="header-actions">
+        <a href="javascript://" class="nav-link nav-icon-text">
+            <span nz-icon nzType="user" nzTheme="outline" style="font-size: 20px;"></span>
+            <span class="nav-text">{{currentUser?.name}}</span>
+        </a>
+        <clr-dropdown>
+            <button class="nav-icon" clrDropdownTrigger aria-label="toggle settings menu">
+                <span nz-icon nzType="menu" nzTheme="outline" style="font-size: 20px;"></span>
+            </button>
+            <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
+                <a clrDropdownItem>About me</a>
+                <a clrDropdownItem (click)="logout()">Log out</a>
+            </clr-dropdown-menu>
+        </clr-dropdown>
+    </div>
+</header>

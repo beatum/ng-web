@@ -1,0 +1,81 @@
+{
+    "status": true,
+    "message": "ok",
+    "code": 0,
+    "menus": [
+        {
+            "level": "0",
+            "children": [
+                {
+                    "level": "1",
+                    "children": [],
+                    "form_name": "Form_AppUser",
+                    "image": "userconfig_16",
+                    "isRoot": "0",
+                    "sequence": "1",
+                    "parent_menu_key": "1041901564",
+                    "module_name": "APP_USER",
+                    "label": "User",
+                    "icon": "user-add",
+                    "description": "App user management",
+                    "routerLink": "./appuser",
+                    "key": "1041903632"
+                },
+                {
+                    "level": "1",
+                    "children": [],
+                    "image": "userconfig_16",
+                    "isRoot": "0",
+                    "sequence": "1",
+                    "parent_menu_key": "1041901564",
+                    "module_name": "APP_USER",
+                    "label": "User Group",
+                    "icon": "user",
+                    "description": "App user management",
+                    "routerLink": "",
+                    "key": "1041903632"
+                },
+                {
+                    "level": "1",
+                    "children": [],
+                    "form_name": "Form_AppMenu",
+                    "image": "format-list-unordered_16",
+                    "isRoot": "0",
+                    "sequence": "0",
+                    "parent_menu_key": "1041901564",
+                    "module_name": "APP_MENU",
+                    "label": "Menu",
+                    "routerLink": "./appmenu",
+                    "description": "App menu management",
+                    "icon": "menu-fold",
+                    "key": "1041904320"
+                },
+                {
+                    "level": "1",
+                    "children": [],
+                    "form_name": "Form_AppMenu_Group",
+                    "image": "preferences-desktop-user-password_16",
+                    "isRoot": "0",
+                    "sequence": "1",
+                    "parent_menu_key": "1041901564",
+                    "module_name": "APP_MENU",
+                    "label": "Menu group",
+                    "icon": "unordered-list",
+                    "description": "App menu group",
+                    "key": "1041894044"
+                }
+
+            ],
+            "form_name": "",
+            "image": "user",
+            "icon": "global",
+            "isRoot": "1",
+            "sequence": "0",
+            "parent_menu_key": "0",
+            "module_name": "APP_MENU",
+            "label": "System admin",
+            "description": "System administrator",
+            "key": "1041901564"
+        }
+    ]
+}

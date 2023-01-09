@@ -1,0 +1,39 @@
+{
+    "status": true,
+    "message": "ok",
+    "code": 0,
+    "token": "Bearer happy",
+    "user": {
+        "email": "123@test.org",
+        "status": "Normal",
+        "statusChanged": false,
+        "statusChangeTime": {
+            "timestamp": "2019-01-25T15:41:55.277+08:00",
+            "timezone": "Asia/Shanghai"
+        },
+        "updatePrivilegeKey": 0,
+        "userDefinedAttributes": {
+            "modificationFlag": 1
+        },
+        "userExpiration": {
+            "timestamp": "9999-12-31T00:00:00.967+08:00",
+            "timezone": "Asia/Shanghai"
+        },
+        "userGroupUsersChanged": false,
+        "category": "IT",
+        "creatorKey": 2351853,
+        "creationTime": {
+            "timestamp": "2013-08-09T08:58:52.980+08:00",
+            "timezone": "Asia/Shanghai"
+        },
+        "lastModifierKey": 2,
+        "lastModifiedTime": {
+            "timestamp": "2022-12-30T13:01:59.050+08:00",
+            "timezone": "Asia/Shanghai"
+        },
+        "key": 123456,
+        "name": "Happy",
+        "objectSource": 1,
+        "modificationFlag": 1
+    }
+}

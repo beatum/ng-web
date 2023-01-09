@@ -1,0 +1,16 @@
+.padding-lt0 {
+    padding-left: 0;
+    padding-top: 0;
+}
+
+.userControl {
+    margin-left: 15px;
+}
+
+.rowOfControlGrid {
+    margin-top: 15px;
+}
+
+.my-card-content{
+    min-height: 750px;
+}

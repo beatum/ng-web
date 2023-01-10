@@ -26,22 +26,40 @@ export class AppuserComponent implements OnInit {
   };
 
   // user for edit 
-  userForEdit = this.userForQuery;
+  userForEdit = {
+    name: null,
+    category: null,
+    firstName: null,
+    lastName: null,
+    mail: null,
+    status: null
+  };
 
   //use for add new
-  userForAddNew = this.userForQuery;
-  
+  userForAddNew = {
+    name: null,
+    category: null,
+    firstName: null,
+    lastName: null,
+    mail: null,
+    status: null
+  };
+
   //user grops for edit
   userGroup4Edit = [
     { name: "usergroup1", description: "..." },
     { name: "usergroup2", description: "..." }
   ]
 
+  //user group for add new user
+  userGroup4AddNewUser: any = [];
+
   //show edit user
   showEditUser: boolean = false;
 
   //show add new dialog
-  showAddNew:boolean = false;
+  showAddNew: boolean = false;
+
 
   constructor(private userService: UserServiceService, private notificationService: NotificationService) {
     console.log("")
@@ -66,11 +84,15 @@ export class AppuserComponent implements OnInit {
     this.userForEdit = user;
   }
 
+  //on add new
+  public onAddNew() {
+    this.showAddNew = true;
+  }
+
   //on edit group
   public onEditGroup(group: any) {
     console.log("On editting...");
   }
-
 
   //gets users by page
   public async getUsersByPage(pageIndex: number, pageSize: number, user: any) {

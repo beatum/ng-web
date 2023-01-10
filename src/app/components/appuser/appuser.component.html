@@ -35,7 +35,7 @@
         </div>
 
         <div class="userControl">
-            <button class="btn btn-success btn-sm">New</button>
+            <button class="btn btn-success btn-sm" (click)="onAddNew()" >New</button>
         </div>
 
         <div class="userControl">
@@ -93,8 +93,9 @@
     </clr-datagrid>
 </div>
 
-
 <app-footer></app-footer>
+
+
 
 <!--dialog of edit user-->
 <clr-modal class="modal-lg" [(clrModalOpen)]="showEditUser" [clrModalStaticBackdrop]="true">
@@ -168,6 +169,102 @@
                     <clr-dg-column>Description</clr-dg-column>
 
                     <clr-dg-row *ngFor="let group of userGroup4Edit ; index as i">
+                        <clr-dg-cell>{{ i + 1 }}</clr-dg-cell>
+                        <clr-dg-cell>{{group.name}}</clr-dg-cell>
+                        <clr-dg-cell>{{group.description}}</clr-dg-cell>
+                        <clr-dg-action-overflow>
+                            <button class="action-item" (click)="onEditGroup(group)">
+                                <span nz-icon nzType="delete" nzTheme="outline"></span>
+                                Remove
+                            </button>
+                        </clr-dg-action-overflow>
+                    </clr-dg-row>
+                </clr-datagrid>
+            </div>
+            <div class="clr-col-12 clr-col-md-12 clr-col-sm-12">
+                <button class="btn btn-primary btn-sm">add new</button>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline">Cancel</button>
+        <button type="button" class="btn btn-primary">Ok</button>
+    </div>
+</clr-modal>
+
+
+<!--dialog of add new user-->
+<clr-modal class="modal-lg" [(clrModalOpen)]="showAddNew" [clrModalStaticBackdrop]="true">
+    <h3 class="modal-title">Add new user</h3>
+    <div class="modal-body">
+        <div class="clr-row clr-align-items-start">
+            <!--user name-->
+            <div class="userControl clr-col-5 clr-col-md-5 clr-col-sm-2 ">
+                <clr-input-container>
+                    <label>User Name:</label>
+                    <input clrInput placeholder="User name" [(ngModel)]="userForAddNew.name" />
+                </clr-input-container>
+            </div>
+
+            <!--category-->
+            <div class="userControl  clr-col-5 clr-col-md-5 clr-col-sm-2">
+                <clr-combobox-container>
+                    <label>Category</label>
+                    <clr-combobox [(ngModel)]="userForAddNew.category" laceholder="Choose a category">
+                        <clr-options>
+                            <clr-option clrValue="IT">IT</clr-option>
+                            <clr-option clrValue="ENG">Engineering</clr-option>
+                            <clr-option clrValue="PD">Production</clr-option>
+                        </clr-options>
+                    </clr-combobox>
+                </clr-combobox-container>
+            </div>
+
+            <!--first name-->
+            <div class="userControl clr-col-5 clr-col-md-5 clr-col-sm-2 ">
+                <clr-input-container>
+                    <label>First Name:</label>
+                    <input clrInput placeholder="First Name" [(ngModel)]="userForAddNew.firstName" />
+                </clr-input-container>
+            </div>
+
+            <!--last name-->
+            <div class="userControl clr-col-5 clr-col-md-5 clr-col-sm-2 ">
+                <clr-input-container>
+                    <label>Last Name:</label>
+                    <input clrInput placeholder="Last Name" [(ngModel)]="userForAddNew.lastName" />
+                </clr-input-container>
+            </div>
+
+            <!--email-->
+            <div class="userControl clr-col-5 clr-col-md-5 clr-col-sm-2 ">
+                <clr-input-container>
+                    <label>Mail:</label>
+                    <input clrInput placeholder="Mail" [(ngModel)]="userForAddNew.mail" />
+                </clr-input-container>
+            </div>
+
+            <!--status-->
+            <div class="userControl  clr-col-5 clr-col-md-5 clr-col-sm-2">
+                <clr-combobox-container>
+                    <label>Status</label>
+                    <clr-combobox [(ngModel)]="userForAddNew.status" laceholder="Choose a status">
+                        <clr-options>
+                            <clr-option clrValue="Normal">Normal</clr-option>
+                            <clr-option clrValue="Disabled">Disabled</clr-option>
+                        </clr-options>
+                    </clr-combobox>
+                </clr-combobox-container>
+            </div>
+
+            <!--user group-->
+            <div class="clr-col-12 clr-col-md-12 clr-col-sm-12">
+                <clr-datagrid>
+                    <clr-dg-column>No</clr-dg-column>
+                    <clr-dg-column [clrDgField]="'name'">Name</clr-dg-column>
+                    <clr-dg-column>Description</clr-dg-column>
+
+                    <clr-dg-row *ngFor="let group of userGroup4AddNewUser ; index as i">
                         <clr-dg-cell>{{ i + 1 }}</clr-dg-cell>
                         <clr-dg-cell>{{group.name}}</clr-dg-cell>
                         <clr-dg-cell>{{group.description}}</clr-dg-cell>

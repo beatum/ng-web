@@ -6,9 +6,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Overviews：
 
-![Login](.\imgs\login.jpg)
+![Login](https://github.com/beatum/ng-web/blob/master/imgs/login.jpg)
 
-![Main](.\imgs\main.jpg)
+![Main](https://github.com/beatum/ng-web/blob/master/imgs/main.jpg)
 
 ## Routing:
 

@@ -9,7 +9,6 @@ import { AccessPrivilegeGuardGuard } from './guards/access-privilege-guard.guard
 import { AppusergroupComponent } from './components/appusergroup/appusergroup.component';
 
 
-
 const routes: Routes = [
   { path: '', redirectTo: '\login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },

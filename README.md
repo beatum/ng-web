@@ -1,14 +1,34 @@
-# NgWeb
+# Angular web application 
+<img src="https://img.shields.io/github/package-json/v/beatum/ng-web" alt="Version"> <img src="https://img.shields.io/github/checks-status/beatum/ng-web/master"><img src="https://img.shields.io/github/license/beatum/ng-web"><img alt="GitHub all releases" src="https://img.shields.io/github/downloads/beatum/ng-web/total">
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.3.
 
+## Overviews：
+
+![Login](.\imgs\login.jpg)
+
+![Main](.\imgs\main.jpg)
+
+## Routing:
+
+```typescript
+const routes: Routes = [
+  { path: '', redirectTo: '\login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  {
+    path: 'main', component: MainComponent, canActivate: [AccessPrivilegeGuardGuard],
+    children: [
+      { path: 'appuser', component: AppuserComponent, canActivate: [AccessPrivilegeGuardGuard], data: { uid: "appuser", name: "User", useCache: true } },
+      { path: 'appmenu', component: AppmenuComponent, canActivate: [AccessPrivilegeGuardGuard], data: { uid: "appmenu", name: "Menu", useCache: true } },
+      { path: 'appusergroup', component: AppusergroupComponent, canActivate: [AccessPrivilegeGuardGuard], data: { uid: "appusergroup", name: "User group", useCache: true } }
+    ]
+  }
+];
+```
+
 ## Development server
-
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 ## Build
 
@@ -22,6 +42,7 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-## Further help
+## Acknowledgment: 
+[Clarity Design ](https://github.com/vmware-clarity/ng-clarity)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+​			

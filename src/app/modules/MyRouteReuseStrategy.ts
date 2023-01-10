@@ -19,7 +19,7 @@ export class MyRouteReuseStrategy implements RouteReuseStrategy {
     // Determines if this route (and its subtree) should be detached to be reused later
     public shouldDetach(route: ActivatedRouteSnapshot): boolean {
         let routeConfig: any = route.routeConfig;
-        return (route.routeConfig != null) && (route.routeConfig.data != null) && (routeConfig.data.useCache != null);
+        return (route.routeConfig != null) && (route.routeConfig.data != null) && (routeConfig.data.useCache != null) && (routeConfig.data.useCache);
     }
 
     //Determines if a route should be reused

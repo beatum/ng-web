@@ -6,6 +6,7 @@ import { LoginComponent } from './components/login/login.component';
 
 import { MainComponent } from './components/main/main.component';
 import { AccessPrivilegeGuardGuard } from './guards/access-privilege-guard.guard';
+import { AppusergroupComponent } from './components/appusergroup/appusergroup.component';
 
 
 
@@ -16,7 +17,8 @@ const routes: Routes = [
     path: 'main', component: MainComponent, canActivate: [AccessPrivilegeGuardGuard],
     children: [
       { path: 'appuser', component: AppuserComponent, canActivate: [AccessPrivilegeGuardGuard], data: { uid: "appuser", name: "User", useCache: true } },
-      { path: 'appmenu', component: AppmenuComponent, canActivate: [AccessPrivilegeGuardGuard], data: { uid: "appmenu", name: "Menu", useCache: true } }
+      { path: 'appmenu', component: AppmenuComponent, canActivate: [AccessPrivilegeGuardGuard], data: { uid: "appmenu", name: "Menu", useCache: true } },
+      { path: 'appusergroup', component: AppusergroupComponent, canActivate: [AccessPrivilegeGuardGuard], data: { uid: "appusergroup", name: "User group", useCache: true } }
     ]
   }
 ];

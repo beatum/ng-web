@@ -32,7 +32,7 @@
                     "label": "User Group",
                     "icon": "user",
                     "description": "App user management",
-                    "routerLink": "",
+                    "routerLink": "./appusergroup",
                     "key": "1041903632"
                 },
                 {
@@ -64,7 +64,6 @@
                     "description": "App menu group",
                     "key": "1041894044"
                 }
-
             ],
             "form_name": "",
             "image": "user",

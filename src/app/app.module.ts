@@ -23,6 +23,7 @@ import { NgAntModule } from './modules/ng-ant/ng-ant.module';
 import { AppmenuComponent } from './components/appmenu/appmenu.component';
 import { UserEditComponent } from './components/modals/user-edit/user-edit.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { AppusergroupComponent } from './components/appusergroup/appusergroup.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { FooterComponent } from './components/footer/footer.component';
     AppmenuComponent,
     UserEditComponent,
     FooterComponent,
+    AppusergroupComponent,
   ],
   imports: [
     BrowserModule,

@@ -63,6 +63,17 @@
                     "icon": "unordered-list",
                     "description": "App menu group",
                     "key": "1041894044"
+                },
+                {
+                    "level": "1",
+                    "children": [],
+                    "isRoot": "0",
+                    "module_name": "APP_MENU",
+                    "label": "chart test..",
+                    "icon": "pie-chart",
+                    "description": "chart test..",
+                    "key": "1041894044",
+                    "routerLink": "./chartTest"
                 }
             ],
             "form_name": "",

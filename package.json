@@ -22,7 +22,9 @@
     "@clr/angular": "^13.11.1",
     "@clr/ui": "^13.11.1",
     "axios": "^1.2.2",
+    "echarts": "^5.4.1",
     "ng-zorro-antd": "^15.0.0",
+    "ngx-echarts": "^15.0.1",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.12.0"

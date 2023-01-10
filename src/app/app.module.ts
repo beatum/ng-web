@@ -25,6 +25,12 @@ import { UserEditComponent } from './components/modals/user-edit/user-edit.compo
 import { FooterComponent } from './components/footer/footer.component';
 import { AppusergroupComponent } from './components/appusergroup/appusergroup.component';
 
+import { NgxEchartsModule } from 'ngx-echarts';
+import { ChartLineComponent } from './components/charts/chart-line/chart-line.component';
+import { ChartTestComponent } from './components/chart-test/chart-test.component';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,6 +46,8 @@ import { AppusergroupComponent } from './components/appusergroup/appusergroup.co
     UserEditComponent,
     FooterComponent,
     AppusergroupComponent,
+    ChartLineComponent,
+    ChartTestComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +56,10 @@ import { AppusergroupComponent } from './components/appusergroup/appusergroup.co
     BrowserAnimationsModule,
     ClarityModule,
     HttpClientModule,
-    NgAntModule
+    NgAntModule,
+    NgxEchartsModule.forRoot({
+      echarts: () => import('echarts'),
+    }),
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: MyRouteReuseStrategy }

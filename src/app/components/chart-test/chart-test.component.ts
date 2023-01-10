@@ -1,0 +1,10 @@
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-chart-test',
+  templateUrl: './chart-test.component.html',
+  styleUrls: ['./chart-test.component.css']
+})
+export class ChartTestComponent {
+
+}

@@ -62,7 +62,6 @@ export class AppuserComponent implements OnInit {
 
 
   constructor(private userService: UserServiceService, private notificationService: NotificationService) {
-    console.log("")
   }
 
   ngOnInit(): void {

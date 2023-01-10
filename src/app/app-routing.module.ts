@@ -7,6 +7,7 @@ import { LoginComponent } from './components/login/login.component';
 import { MainComponent } from './components/main/main.component';
 import { AccessPrivilegeGuardGuard } from './guards/access-privilege-guard.guard';
 import { AppusergroupComponent } from './components/appusergroup/appusergroup.component';
+import { ChartTestComponent } from './components/chart-test/chart-test.component';
 
 
 const routes: Routes = [
@@ -17,7 +18,9 @@ const routes: Routes = [
     children: [
       { path: 'appuser', component: AppuserComponent, canActivate: [AccessPrivilegeGuardGuard], data: { uid: "appuser", name: "User", useCache: true } },
       { path: 'appmenu', component: AppmenuComponent, canActivate: [AccessPrivilegeGuardGuard], data: { uid: "appmenu", name: "Menu", useCache: true } },
-      { path: 'appusergroup', component: AppusergroupComponent, canActivate: [AccessPrivilegeGuardGuard], data: { uid: "appusergroup", name: "User group", useCache: true } }
+      { path: 'appusergroup', component: AppusergroupComponent, canActivate: [AccessPrivilegeGuardGuard], data: { uid: "appusergroup", name: "User group", useCache: true } },
+
+      { path: 'chartTest', component: ChartTestComponent, canActivate: [AccessPrivilegeGuardGuard], data: { uid: "chartTest", name: "Chart Test", useCache: false } }
     ]
   }
 ];

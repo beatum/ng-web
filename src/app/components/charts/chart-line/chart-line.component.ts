@@ -25,7 +25,10 @@ export class ChartLineComponent implements OnInit {
         type: 'line',
         smooth: true
       }
-    ]
+    ],
+    label: {
+      show:true
+    }
   }
 
   ngOnInit(): void {

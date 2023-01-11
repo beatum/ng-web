@@ -55,21 +55,7 @@ export class TabPageComponent {
 
   //close tab
   public closeTab({ index }: { index: number }): void {
-    //let currentMenuItem = this.tabs[index];
-    //let handlers: any = MyRouteReuseStrategy.handlers;
-    //delete handlers[currentMenuItem.path];
-    if (index == 0 && this.tabs.length >= 0) {
-      let eleOne = this.tabs[1];
-      this.tabs[0] = eleOne;
-      if (this.tabs.length == 1) {
-        this.tabs.splice(0);
-      } else {
-        this.tabs.splice(1);
-      }
-
-    } else {
-      this.tabs.splice(index);
-    }
+    this.tabs.splice(index, 1);
     if (index == 0 || this.tabs.length == 0) {
       this.router.navigate(['/main']);
     }
